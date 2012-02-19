@@ -164,7 +164,7 @@ class MCollective::Application::Inventory<MCollective::Application
           puts "   Facts:"
           if data[:facts].size > 0
             data[:facts].sort_by{|f| f[0]}.each do |f|
-              puts "      #{f[0]} => #{f[1]}"
+              puts "      #{f[0]} => #{f[1].inspect}"
             end
           else
             puts "      No facts known"

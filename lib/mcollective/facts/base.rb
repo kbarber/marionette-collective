@@ -37,7 +37,10 @@ module MCollective
               @facts.clear
 
               tfacts.each_pair do |key,value|
-                @facts[key.to_s] = value.to_s
+                # TODO: this is going to break structured fact search
+                #       I'm only doing this so the inventory service will return
+                #       structure but it will interfere with fact flattening
+                @facts[key.to_s] = value
               end
 
               @last_good_facts = @facts.clone
